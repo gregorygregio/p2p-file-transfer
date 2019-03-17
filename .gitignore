@@ -1,3 +1,5 @@
 node_modules
 ngrok-stable-linux-amd64.zip
 ngrok
+share/
+received/

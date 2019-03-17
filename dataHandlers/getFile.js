@@ -8,6 +8,7 @@ module.exports = (originSocket, body, p2p) => {
 
         fs.readFile("./share/" + body, (err, data) => {
             if(err) throw err;
+            console.log("transfering ",body)
             originSocket.write("--fileTransfer " + data + "  fileTransfer--");
         })
     })
