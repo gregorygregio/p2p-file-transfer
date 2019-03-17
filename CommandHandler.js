@@ -8,18 +8,18 @@ module.exports = class CommandHandler {
         this.p2p = p2p;
     }
 
-    handle(socketOfOrigim, data) {
+    handle(data) {
         if(data.indexOf("/") !== 0)
-            return socketOfOrigim.write("/message Invalid command format. A command should start with '/' ");
+            return console.log("Invalid command format. A command should start with '/' ");
 
         const command  = this.getCommandFromInput(data);
         
 
         if( !Object.keys(commandHash).includes(command.command))
-            return socketOfOrigim.write("/message Command not found !");
+            return console.log("Command not found");
 
         const commandHandlerClass = commandHash[command.command];
-        commandHandlerClass(socketOfOrigim, command, this.p2p);
+        commandHandlerClass(this.p2p, command);
     }
 
     getCommandFromInput(data) {

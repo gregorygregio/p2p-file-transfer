@@ -7,7 +7,7 @@ const port = process.env.PORT;
 const ip = networkAddress.ipv4();
 
 
-module.exports = { 
+module.exports = {
     port,
     ip,
     myAddress: () => ip+":"+port

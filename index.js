@@ -4,13 +4,12 @@ const me = require("./me");
 
 const p2p = new P2P(me);
 const CommandHandler = require("./CommandHandler");
+const DataHandler = require("./DataHandler");
 
 const commandHandler = new CommandHandler(p2p);
+const dataHandler = new DataHandler(p2p);
 
-
-p2p.onData = (socket, data) => {
-    commandHandler.handle(socket, data.toString());
-}
+p2p.onData = dataHandler.handle;
 
 process.argv.slice(2).forEach( seeder => {
 
@@ -27,5 +26,5 @@ process.argv.slice(2).forEach( seeder => {
 
 
 process.stdin.on('data', data => {
-    p2p.broadcast(data.toString().replace(/\n/, ""));
+    commandHandler.handle(data.toString().replace(/\n/, ""));
 })
