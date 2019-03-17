@@ -1,0 +1,14 @@
+{
+  "name": "p2p-file-transfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lord Gregory Gregio",
+  "license": "ISC",
+  "dependencies": {
+    "network-address": "^1.1.2"
+  }
+}
