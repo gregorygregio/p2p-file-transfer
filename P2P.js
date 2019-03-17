@@ -40,7 +40,7 @@ module.exports = class P2P {
 
     onSocketConnected(socket) {
         this.connections.push(socket);
-        socket.write("--message Greetings, asshole !! I'm " + this.port + " message--");
+        
 
         socket.on('data', data => {
             this.onData(socket, data);
